@@ -1,19 +1,19 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Home, Details, Search, Profile } from './screens/Screens';
 
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home}></Stack.Screen>
-        <Stack.Screen name="Details" component={Details}></Stack.Screen>
-        <Stack.Screen name="Search" component={Search}></Stack.Screen>
-        <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
-      </Stack.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={Home}></Drawer.Screen>
+        <Drawer.Screen name="Details" component={Details}></Drawer.Screen>
+        <Drawer.Screen name="Search" component={Search}></Drawer.Screen>
+        <Drawer.Screen name="Profile" component={Profile}></Drawer.Screen>
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
