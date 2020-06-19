@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Button,
-  SafeAreaView,
-  ScrollView,
-} from "react-native";
+import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {
   Divider,
@@ -25,6 +18,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  homeContainer: {
+    flex: 1,
+  },
+  searchContainer: {
+    flex: 1,
+  },
   button: {
     alignItems: "center",
     color: "red",
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   detailsContainer: {
-      flex: 1,
+    flex: 1,
   },
   doubleCardContainer: {
     flexDirection: "row",
@@ -56,8 +55,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   listItemSummary: {
-      height: 36,
-  }
+    height: 36,
+  },
 });
 
 //ProfileContainer for Profile Screen only
@@ -66,6 +65,7 @@ const ProfileContainer = ({ children }) => (
 );
 
 //Profile Screen with ProfileContainer allowing for nesting
+//Future build: Add database for the title/paragraph and icon, allowing for items to be .map and appear in a list.
 export const Profile = ({ navigation }) => {
   return (
     <ProfileContainer>
@@ -80,7 +80,9 @@ export const Profile = ({ navigation }) => {
               icon="folder"
               color={Colors.red500}
               size={24}
-              onPress={() => navigation.navigate("Details", { name: "Details" })}
+              onPress={() =>
+                navigation.navigate("Details", { name: "Details" })
+              }
             />
           </Card.Content>
         </Card>
@@ -94,48 +96,15 @@ export const Profile = ({ navigation }) => {
                 icon="folder"
                 color={Colors.red500}
                 size={24}
-                onPress={() => navigation.navigate("Details", { name: "Details" })}
+                onPress={() =>
+                  navigation.navigate("Details", { name: "Details" })
+                }
               />
             </Card.Content>
           </Card>
         </ProfileContainer>
       </ProfileContainer>
     </ProfileContainer>
-  );
-};
-
-//ScreenContainer = used in all screens to center content at a flex: 1, justifyContent: 'center', and alignItems: 'center'
-const ScreenContainer = ({ children }) => (
-  <View style={styles.container}>{children}</View>
-);
-
-//Home Screen
-export const Home = ({ navigation }) => {
-  return (
-    <ScreenContainer>
-      <Text style={styles.baseText}>Home</Text>
-      <TouchableOpacity
-        style={styles.button}
-        title="Details"
-        onPress={() => navigation.navigate("Details", { name: "Details" })}
-      >
-        <Text>Details</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        title="Search"
-        onPress={() => navigation.navigate("Search", { name: "Search" })}
-      >
-        <Text>Search</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        title="Profile"
-        onPress={() => navigation.navigate("Profile", { name: "Profile" })}
-      >
-        <Text>Profile</Text>
-      </TouchableOpacity>
-    </ScreenContainer>
   );
 };
 
@@ -148,7 +117,7 @@ const DoubleCardContainer = ({ children }) => (
 
 //Details Screen
 //Buttons to go Home, to Search Screen, and to Go Back
-export const Details = ({ navigation, route }) => {
+export const Details = () => {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -198,29 +167,28 @@ export const Details = ({ navigation, route }) => {
               <Card.Content
                 style={{ justifyContent: "center", alignItems: "center" }}
               >
-                <Title>Card title</Title>
-                <Paragraph>Card content</Paragraph>
+                <Title>Time Card</Title>
+                <Paragraph>Current Week</Paragraph>
               </Card.Content>
             </Card>
             <Card style={{ width: "50%" }}>
               <Card.Content
                 style={{ justifyContent: "center", alignItems: "center" }}
               >
-                <Title>Card title</Title>
-                <Paragraph>Card content</Paragraph>
+                <Title>Time Card</Title>
+                <Paragraph>Last Week</Paragraph>
               </Card.Content>
             </Card>
           </DoubleCardContainer>
           <DetailsContainer>
-              <Text style={{ marginTop: 20}}></Text>
-
+            <Text style={{ marginTop: 20 }}></Text>
           </DetailsContainer>
           <Card>
-              <Card.Content style={{ justifyContent: 'center', alignItems: 'center' }}>
-                  <Paragraph>
-                      Daily Earnings
-                  </Paragraph>
-              </Card.Content>
+            <Card.Content
+              style={{ justifyContent: "center", alignItems: "center" }}
+            >
+              <Paragraph>Daily Earnings</Paragraph>
+            </Card.Content>
           </Card>
           <List.Section>
             <List.Item
@@ -239,27 +207,21 @@ export const Details = ({ navigation, route }) => {
               style={{ borderBottomWidth: 1 }}
             />
           </List.Section>
-
-          
         </DetailsContainer>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-//Search Screen
+const SearchContainer = ({ children }) => (
+  <View style={styles.searchContainer}>{children}</View>
+); //Search Screen
 //Buttons to go Home, or back to Details page
 export const Search = ({ navigation }) => {
   return (
-    <ScreenContainer>
+    <SearchContainer>
       <Text style={styles.baseText}>Search</Text>
-      <TouchableOpacity
-        style={styles.button}
-        title="Home"
-        onPress={() => navigation.navigate("Home", { name: "Home" })}
-      >
         <Text>Home</Text>
-      </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         title="Go Back"
@@ -267,6 +229,6 @@ export const Search = ({ navigation }) => {
       >
         <Text>Go Back</Text>
       </TouchableOpacity>
-    </ScreenContainer>
+    </SearchContainer>
   );
 };
