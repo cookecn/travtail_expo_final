@@ -10,6 +10,7 @@ import {
   Colors,
   List,
 } from "react-native-paper";
+import SearchBarComponent from "../components/SearchBar";
 
 //Styles for All Screens
 const styles = StyleSheet.create({
@@ -19,10 +20,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   homeContainer: {
-    flex: 1,
+    flex: 2,
+    justifyContent: "center",
+    alignItems: "center",
   },
   searchContainer: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   button: {
     alignItems: "center",
@@ -34,6 +39,10 @@ const styles = StyleSheet.create({
   baseText: {
     fontWeight: "bold",
     fontSize: 24,
+  },
+  homeText: {
+    fontWeight: "bold",
+    fontSize: 48,
   },
   profileContainer: {
     flex: 1,
@@ -220,8 +229,7 @@ const SearchContainer = ({ children }) => (
 export const Search = ({ navigation }) => {
   return (
     <SearchContainer>
-      <Text style={styles.baseText}>Search</Text>
-        <Text>Home</Text>
+      <SearchBarComponent />
       <TouchableOpacity
         style={styles.button}
         title="Go Back"
@@ -230,5 +238,38 @@ export const Search = ({ navigation }) => {
         <Text>Go Back</Text>
       </TouchableOpacity>
     </SearchContainer>
+  );
+};
+
+const HomeContainer = ({ children }) => (
+  <View style={styles.container}>{children}</View>
+);
+
+export const Home = ({ navigation }) => {
+  return (
+    <HomeContainer>
+      <Text style={{ fontWeight: "bold", fontSize: 48 }}>Welcome to,</Text>
+      <Text style={{ fontWeight: "bold", fontSize: 48 }}>Travtail</Text>
+      <View style={{ flexDirection: "row" }}>
+        <IconButton
+          icon="account-circle"
+          color={Colors.blue500}
+          size={20}
+          onPress={() => navigation.navigate("Profile", { name: "Profile" })}
+        />
+        <IconButton
+          icon="folder-account"
+          color={Colors.red500}
+          size={20}
+          onPress={() => navigation.navigate("Details", { name: "Details" })}
+        />
+        <IconButton
+          icon="magnify"
+          color={Colors.red500}
+          size={20}
+          onPress={() => navigation.navigate("Search", { name: "Search" })}
+        />
+      </View>
+    </HomeContainer>
   );
 };
