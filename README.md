@@ -18,4 +18,10 @@
 
 * Work in progress *
 
+** Future Builds will Include:
+1. Props and State implementation to work like an actual application.
+2. Api calls utilizing axios/fetch to receive data
+3. Have data received from API calls show on each screen, using props to pass down the information from one screen to another.
+4. Better stylized UI elements. 
+
 
