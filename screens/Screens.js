@@ -95,7 +95,6 @@ export const Profile = ({ navigation }) => {
             />
           </Card.Content>
         </Card>
-        <ProfileContainer>
           <Divider />
           <Card>
             <Card.Content style={styles.cardTextWeekly}>
@@ -111,9 +110,23 @@ export const Profile = ({ navigation }) => {
               />
             </Card.Content>
           </Card>
+          <Divider />
+          <Card>
+            <Card.Content style={styles.cardTextWeekly}>
+              <Title>Jul 2 - 8</Title>
+              <Paragraph>$381.10</Paragraph>
+              <IconButton
+                icon="folder"
+                color={Colors.red500}
+                size={24}
+                onPress={() =>
+                  navigation.navigate("Details", { name: "Details" })
+                }
+              />
+            </Card.Content>
+          </Card>
         </ProfileContainer>
       </ProfileContainer>
-    </ProfileContainer>
   );
 };
 
