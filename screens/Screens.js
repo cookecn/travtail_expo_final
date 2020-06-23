@@ -12,6 +12,7 @@ import {
 } from "react-native-paper";
 import SearchBarComponent from "../components/SearchBar";
 
+
 //Styles for All Screens
 const styles = StyleSheet.create({
   container: {
@@ -260,6 +261,7 @@ const HomeContainer = ({ children }) => (
 
 export const Home = ({ navigation }) => {
   return (
+    
     <HomeContainer>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Welcome to,</Text>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Travtail</Text>

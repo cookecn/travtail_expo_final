@@ -1,12 +1,13 @@
-/*import * as React from 'react';
+import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Home, Details, Profile } from '../screens/Screens';
 const Stack = createStackNavigator();
 
-export default function AppBar() {
-  return (
-    <Stack.Navigator
+class AppBarComponent extends React.Component {
+  render() {
+    return(
+<Stack.Navigator
       headerMode="screen"
       screenOptions={{
         header: ({ navigation, scene }) => (
@@ -39,5 +40,8 @@ export default function AppBar() {
         options={{ title: 'Profile' }}
       />
     </Stack.Navigator>
-  );
-}*/
+    )
+  }
+}
+
+export default AppBarComponent;
