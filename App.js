@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-
 import {
   NavigationContainer,
   useNavigation,
@@ -8,20 +7,14 @@ import {
 } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  createStackNavigator,
-  Header,
-  HeaderBackButton,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Provider as PaperProvider } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
+import { withAuthenticator } from "aws-amplify-react-native";
 import { Details, Search, Profile, Home } from "./screens/Screens";
 
 import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
-
-import { withAuthenticator } from "aws-amplify-react-native";
 
 Amplify.configure(awsconfig);
 
