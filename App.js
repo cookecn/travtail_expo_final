@@ -38,7 +38,10 @@ const TabRoutes = () => {
 function DrawerRoutes() {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={TabRoutes}></Drawer.Screen>
+      <Drawer.Screen name="Home" component={TabRoutes} options={{ title: "Home" }}></Drawer.Screen>
+      <Drawer.Screen name="Profile" component={Profile} options={{ title: "Profile" }}></Drawer.Screen>
+      <Drawer.Screen name="Details" component={Details} options={{ title: "Details" }}></Drawer.Screen>
+      <Drawer.Screen name="Search" component={Search} options={{ title: "Search" }}></Drawer.Screen>
     </Drawer.Navigator>
   );
 }
