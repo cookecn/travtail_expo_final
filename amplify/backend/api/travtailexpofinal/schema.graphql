@@ -1,0 +1,16 @@
+type Earnings @model {
+  id: ID!
+  name: String!
+  description: String
+  week: String
+  day: String
+  weekly_amount: String
+  batches: String
+  instacart_payment: String
+  customer_tips: String
+  earnings_adjustment: String
+  one_time_payment: String
+  time_card_current: String
+  time_card_last: String
+  daily_earnings: String
+}

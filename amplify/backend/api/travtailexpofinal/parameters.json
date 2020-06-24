@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "travtailexpofinal",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authtravtailexpofinalbcb1dfae",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

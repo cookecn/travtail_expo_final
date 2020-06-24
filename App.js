@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image } from "react-native";
 
 import {
   NavigationContainer,
@@ -14,11 +14,16 @@ import {
   HeaderBackButton,
 } from "@react-navigation/stack";
 import { Provider as PaperProvider } from "react-native-paper";
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { Details, Search, Profile, Home } from "./screens/Screens";
-import Splash from "./screens/Splash";
-import Login from "./screens/Login";
+
+import Amplify from "aws-amplify";
+import awsconfig from "./aws-exports";
+
+import { withAuthenticator } from "aws-amplify-react-native";
+
+Amplify.configure(awsconfig);
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -28,9 +33,21 @@ const TabRoutes = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen component={Home} name="Home" />
-      <Tab.Screen component={Profile} name="Profile" options={{ title: "Profile"}}/>
-      <Tab.Screen component={Details} name="Details" options={{ title: 'Details'}}/>
-      <Tab.Screen component={Search} name="Search" options={{ title: "Search" }}/>
+      <Tab.Screen
+        component={Profile}
+        name="Profile"
+        options={{ title: "Profile" }}
+      />
+      <Tab.Screen
+        component={Details}
+        name="Details"
+        options={{ title: "Details" }}
+      />
+      <Tab.Screen
+        component={Search}
+        name="Search"
+        options={{ title: "Search" }}
+      />
     </Tab.Navigator>
   );
 };
@@ -38,10 +55,11 @@ const TabRoutes = () => {
 function DrawerRoutes() {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={TabRoutes} options={{ title: "Home" }}></Drawer.Screen>
-      <Drawer.Screen name="Profile" component={Profile} options={{ title: "Profile" }}></Drawer.Screen>
-      <Drawer.Screen name="Details" component={Details} options={{ title: "Details" }}></Drawer.Screen>
-      <Drawer.Screen name="Search" component={Search} options={{ title: "Search" }}></Drawer.Screen>
+      <Drawer.Screen
+        name="Home"
+        component={TabRoutes}
+        options={{ title: "Home" }}
+      ></Drawer.Screen>
     </Drawer.Navigator>
   );
 }
@@ -49,8 +67,9 @@ function DrawerRoutes() {
 function ActionBarIcon() {
   return (
     <Image
-    source={require('./assets/arrow-left.png')}
-    style={{ width: 40, height: 40, borderRadius: 40/2, marginLeft : 15 }} />
+      source={require("./assets/arrow-left.png")}
+      style={{ width: 40, height: 40, borderRadius: 40 / 2, marginLeft: 15 }}
+    />
   );
 }
 const HeaderLeft = () => {
@@ -62,28 +81,30 @@ const HeaderLeft = () => {
           navigation.dispatch(DrawerActions.openDrawer());
         }}
       >
-        <ActionBarIcon/>
+        <ActionBarIcon />
       </TouchableOpacity>
     </View>
   );
 };
 
-export default function App() {
-  return (
-    <PaperProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
-          <Stack.Screen name="Login" component={Login}></Stack.Screen>
-          <Stack.Screen
-            name="Home"
-            component={DrawerRoutes}
-            options={{
-              headerLeft: ({}) => <HeaderLeft />,
-            }}
-          ></Stack.Screen>
-        </Stack.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={DrawerRoutes}
+              options={{
+                headerLeft: ({}) => <HeaderLeft />,
+              }}
+            ></Stack.Screen>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    );
+  }
 }
+
+export default withAuthenticator(App, true);
