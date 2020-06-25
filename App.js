@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, StatusBar } from "react-native";
 import {
   NavigationContainer,
   useNavigation,
@@ -10,8 +10,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Provider as PaperProvider } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { withAuthenticator } from "aws-amplify-react-native";
+//import { withAuthenticator } from "aws-amplify-react-native";
 import { Details, Search, Profile, Home } from "./screens/Screens";
+
 
 import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
@@ -36,11 +37,11 @@ const TabRoutes = () => {
         name="Details"
         options={{ title: "Details" }}
       />
-      <Tab.Screen
+      {/*<Tab.Screen
         component={Search}
         name="Search"
         options={{ title: "Search" }}
-      />
+      />*/}
     </Tab.Navigator>
   );
 };
@@ -72,7 +73,7 @@ const HeaderLeft = () => {
       <TouchableOpacity
         onPress={() => {
           //navigation.dispatch(DrawerActions.openDrawer());
-          navigation.goBack()
+          navigation.goBack("Home" , { title: "Home" });
         }}
       >
         <ActionBarIcon />
@@ -92,8 +93,8 @@ class App extends React.Component {
               component={TabRoutes}
               options={{
                 headerLeft: ({}) => <HeaderLeft />,
-                headerStyle: { backgroundColor: 'indigo' },
-                headerTitleStyle: { color: 'white' }
+                headerStyle: { backgroundColor: "indigo" },
+                headerTitleStyle: { color: "white" },
               }}
             ></Stack.Screen>
           </Stack.Navigator>

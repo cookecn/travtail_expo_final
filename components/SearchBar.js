@@ -15,6 +15,7 @@ class SearchBarComponent extends React.Component {
         placeholder="Search"
         onChangeText={this._onChangeSearch}
         value={searchQuery}
+        style={{ width: '50%'}}
       />
     );
   }

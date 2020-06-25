@@ -18,8 +18,11 @@ import {
   Colors,
   DataTable,
   Avatar,
+  Button,
 } from "react-native-paper";
 import SearchBarComponent from "../components/SearchBar";
+import LogoComponent from "../components/Logo";
+import BarChartComponent from "../components/BarChart";
 //import Pie from "react-native-pie";
 
 //Styles for All Screens
@@ -88,46 +91,42 @@ const ProfileContainer = ({ children }) => (
 //Future build: Add database for the title/paragraph and icon, allowing for items to be .map and appear in a list.
 export const Profile = ({ navigation }) => {
   return (
-    <ImageBackground
-      source={require("../img/work.jpg")}
-      style={{ flex: 1, width: "100%", height: "100%" }}
-    >
-      <SafeAreaView>
-        <ScrollView>
-          <View
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+    <SafeAreaView>
+      <ScrollView>
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'indigo' }}
+        >
+          <Text style={styles.weeklyEarningsText}>Weekly Earnings</Text>
+        </View>
+        <Divider />
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Card
+            style={{
+              backgroundColor: "rgba(52, 52, 52, 0.8)",
+              width: "50%",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
-            <Text style={styles.weeklyEarningsText}>Weekly Earnings</Text>
-          </View>
-          <Divider />
-          <View
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-          >
-            <Card
-              style={{
-                backgroundColor: "rgba(52, 52, 52, 0.8)",
-                width: "50%",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Card.Content style={styles.cardTextWeekly}>
-                <Title style={{ color: "white" }}>Jul 16 - 22</Title>
-                <Paragraph style={{ color: "white" }}>$585.00</Paragraph>
-                <IconButton
-                  icon="account-details"
-                  color={"white"}
-                  size={24}
-                  onPress={() =>
-                    navigation.navigate("Details", { name: "Details" })
-                  }
-                />
-              </Card.Content>
-            </Card>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </ImageBackground>
+            <Card.Content style={styles.cardTextWeekly}>
+              <Title style={{ color: "white" }}>Jul 16 - 22</Title>
+              <Paragraph style={{ color: "white" }}>$585.00</Paragraph>
+              <IconButton
+                icon="account-details"
+                color={"white"}
+                size={24}
+                onPress={() =>
+                  navigation.navigate("Details", { name: "Details" })
+                }
+              />
+            </Card.Content>
+          </Card>
+        </View>
+        <BarChartComponent />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -191,7 +190,7 @@ export const Details = () => {
               <DataTable.Cell numeric>$64.00</DataTable.Cell>
             </DataTable.Row>
           </DataTable>
-          
+
           <View>
             <ImageBackground
               source={require("../img/chef.jpg")}
@@ -307,7 +306,8 @@ export const Home = ({ navigation }) => {
   return (
     <HomeContainer>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Welcome to,</Text>
-      <Text style={{ fontWeight: "bold", fontSize: 48 }}>Travtail</Text>
+      <LogoComponent />
+      {/*<Text style={{ fontWeight: "bold", fontSize: 48 }}>Travtail</Text>*/}
       <View style={{ flexDirection: "row" }}>
         <IconButton
           icon="account-circle"
@@ -321,13 +321,14 @@ export const Home = ({ navigation }) => {
           size={20}
           onPress={() => navigation.navigate("Details", { name: "Details" })}
         />
-        <IconButton
+        {/*<IconButton
           icon="magnify"
           color={Colors.red500}
           size={20}
           onPress={() => navigation.navigate("Search", { name: "Search" })}
-        />
+        />*/}
       </View>
+      <SearchBarComponent />
     </HomeContainer>
   );
 };
