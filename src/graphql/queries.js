@@ -23,13 +23,13 @@ export const getEarnings = /* GraphQL */ `
     }
   }
 `;
-export const listEarningss = /* GraphQL */ `
-  query ListEarningss(
+export const listEarnings = /* GraphQL */ `
+  query ListEarnings(
     $filter: ModelEarningsFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listEarningss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listEarnings(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
