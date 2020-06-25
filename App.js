@@ -24,7 +24,7 @@ const Tab = createBottomTabNavigator();
 
 const TabRoutes = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName="Home">
       <Tab.Screen component={Home} name="Home" />
       <Tab.Screen
         component={Profile}
@@ -45,7 +45,7 @@ const TabRoutes = () => {
   );
 };
 
-function DrawerRoutes() {
+/*function DrawerRoutes() {
   return (
     <Drawer.Navigator initialRouteName="Home">
       <Drawer.Screen
@@ -55,7 +55,7 @@ function DrawerRoutes() {
       ></Drawer.Screen>
     </Drawer.Navigator>
   );
-}
+}*/
 
 function ActionBarIcon() {
   return (
@@ -71,7 +71,8 @@ const HeaderLeft = () => {
     <View style={{ flexDirection: "row" }}>
       <TouchableOpacity
         onPress={() => {
-          navigation.dispatch(DrawerActions.openDrawer());
+          //navigation.dispatch(DrawerActions.openDrawer());
+          navigation.goBack()
         }}
       >
         <ActionBarIcon />
@@ -88,9 +89,11 @@ class App extends React.Component {
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
-              component={DrawerRoutes}
+              component={TabRoutes}
               options={{
                 headerLeft: ({}) => <HeaderLeft />,
+                headerStyle: { backgroundColor: 'indigo' },
+                headerTitleStyle: { color: 'white' }
               }}
             ></Stack.Screen>
           </Stack.Navigator>
@@ -100,4 +103,5 @@ class App extends React.Component {
   }
 }
 
-export default withAuthenticator(App, true);
+//export default withAuthenticator(App, true);
+export default App;

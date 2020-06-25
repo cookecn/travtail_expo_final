@@ -1,5 +1,13 @@
 import * as React from "react";
-import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  ImageBackground,
+  Image,
+} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {
   Divider,
@@ -8,10 +16,11 @@ import {
   Paragraph,
   IconButton,
   Colors,
-  List,
+  DataTable,
+  Avatar,
 } from "react-native-paper";
 import SearchBarComponent from "../components/SearchBar";
-
+//import Pie from "react-native-pie";
 
 //Styles for All Screens
 const styles = StyleSheet.create({
@@ -55,10 +64,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   weeklyEarningsText: {
-    marginTop: 50,
     fontWeight: "bold",
     fontSize: 28,
     marginBottom: 5,
+    color: "white",
+    marginTop: 40,
   },
   cardTextWeekly: {
     alignItems: "center",
@@ -78,56 +88,46 @@ const ProfileContainer = ({ children }) => (
 //Future build: Add database for the title/paragraph and icon, allowing for items to be .map and appear in a list.
 export const Profile = ({ navigation }) => {
   return (
-    <ProfileContainer>
-      <Text style={styles.weeklyEarningsText}>Weekly Earnings</Text>
-      <Divider />
-      <ProfileContainer>
-        <Card>
-          <Card.Content style={styles.cardTextWeekly}>
-            <Title>Jul 16 - 22</Title>
-            <Paragraph>$381.10</Paragraph>
-            <IconButton
-              icon="folder"
-              color={Colors.red500}
-              size={24}
-              onPress={() =>
-                navigation.navigate("Details", { name: "Details" })
-              }
-            />
-          </Card.Content>
-        </Card>
+    <ImageBackground
+      source={require("../img/work.jpg")}
+      style={{ flex: 1, width: "100%", height: "100%" }}
+    >
+      <SafeAreaView>
+        <ScrollView>
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            <Text style={styles.weeklyEarningsText}>Weekly Earnings</Text>
+          </View>
           <Divider />
-          <Card>
-            <Card.Content style={styles.cardTextWeekly}>
-              <Title>Jul 9 - 15</Title>
-              <Paragraph>$381.10</Paragraph>
-              <IconButton
-                icon="folder"
-                color={Colors.red500}
-                size={24}
-                onPress={() =>
-                  navigation.navigate("Details", { name: "Details" })
-                }
-              />
-            </Card.Content>
-          </Card>
-          <Divider />
-          <Card>
-            <Card.Content style={styles.cardTextWeekly}>
-              <Title>Jul 2 - 8</Title>
-              <Paragraph>$381.10</Paragraph>
-              <IconButton
-                icon="folder"
-                color={Colors.red500}
-                size={24}
-                onPress={() =>
-                  navigation.navigate("Details", { name: "Details" })
-                }
-              />
-            </Card.Content>
-          </Card>
-        </ProfileContainer>
-      </ProfileContainer>
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            <Card
+              style={{
+                backgroundColor: "rgba(52, 52, 52, 0.8)",
+                width: "50%",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Card.Content style={styles.cardTextWeekly}>
+                <Title style={{ color: "white" }}>Jul 16 - 22</Title>
+                <Paragraph style={{ color: "white" }}>$585.00</Paragraph>
+                <IconButton
+                  icon="account-details"
+                  color={"white"}
+                  size={24}
+                  onPress={() =>
+                    navigation.navigate("Details", { name: "Details" })
+                  }
+                />
+              </Card.Content>
+            </Card>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -145,7 +145,7 @@ export const Details = () => {
     <SafeAreaView>
       <ScrollView>
         <DetailsContainer>
-          <Card>
+          <Card style={{ backgroundColor: "indigo" }}>
             <Card.Content
               style={{
                 justifyContent: "center",
@@ -153,83 +153,127 @@ export const Details = () => {
                 marginTop: 10,
               }}
             >
-              <Title style={{ fontSize: 48, padding: 40 }}>$300.00</Title>
-              <Text>Summary</Text>
+              <Title style={{ fontSize: 48, padding: 40, color: "white" }}>
+                $585.00
+              </Title>
             </Card.Content>
           </Card>
 
           <Divider />
-          <List.Section>
-            <List.Item
-              title="Batches"
-              right={() => <List.Icon icon="folder" />}
-              style={styles.listItemSummary}
-            />
-            <List.Item
-              title="Instacart Payment"
-              right={() => <List.Icon icon="folder" />}
-              style={styles.listItemSummary}
-            />
-            <List.Item
-              title="Customer Tips"
-              right={() => <List.Icon icon="folder" />}
-              style={styles.listItemSummary}
-            />
-            <List.Item
-              title="Earnings Adjustment"
-              right={() => <List.Icon icon="folder" />}
-              style={styles.listItemSummary}
-            />
-            <List.Item
-              title="One-Time Payment"
-              right={() => <List.Icon icon="folder" />}
-            />
-          </List.Section>
-          <DoubleCardContainer>
-            <Card style={{ width: "50%" }}>
-              <Card.Content
-                style={{ justifyContent: "center", alignItems: "center" }}
-              >
-                <Title>Time Card</Title>
-                <Paragraph>Current Week</Paragraph>
-              </Card.Content>
-            </Card>
-            <Card style={{ width: "50%" }}>
-              <Card.Content
-                style={{ justifyContent: "center", alignItems: "center" }}
-              >
-                <Title>Time Card</Title>
-                <Paragraph>Last Week</Paragraph>
-              </Card.Content>
-            </Card>
-          </DoubleCardContainer>
-          <DetailsContainer>
-            <Text style={{ marginTop: 20 }}></Text>
-          </DetailsContainer>
-          <Card>
-            <Card.Content
-              style={{ justifyContent: "center", alignItems: "center" }}
+
+          <DataTable>
+            <DataTable.Header>
+              <DataTable.Title>Weekly Summary</DataTable.Title>
+              <DataTable.Title numeric>Value</DataTable.Title>
+            </DataTable.Header>
+            <DataTable.Row>
+              <DataTable.Cell>Plumbing</DataTable.Cell>
+              <DataTable.Cell numeric>$105.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Personal Helper</DataTable.Cell>
+              <DataTable.Cell numeric>$75.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Handyman Services</DataTable.Cell>
+              <DataTable.Cell numeric>$96.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Appliance Repair</DataTable.Cell>
+              <DataTable.Cell numeric>$200.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Cleaning Services</DataTable.Cell>
+              <DataTable.Cell numeric>$45.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Delivery Services</DataTable.Cell>
+              <DataTable.Cell numeric>$64.00</DataTable.Cell>
+            </DataTable.Row>
+          </DataTable>
+          
+          <View>
+            <ImageBackground
+              source={require("../img/chef.jpg")}
+              style={{ flex: 1, padding: 50 }}
             >
-              <Paragraph>Daily Earnings</Paragraph>
-            </Card.Content>
-          </Card>
-          <List.Section>
-            <List.Item
-              title="First Item"
-              right={() => <List.Icon icon="folder" />}
-              style={{ borderBottomWidth: 1 }}
-            />
-            <List.Item
-              title="First Item"
-              right={() => <List.Icon icon="folder" />}
-              style={{ borderBottomWidth: 1 }}
-            />
-            <List.Item
-              title="First Item"
-              right={() => <List.Icon icon="folder" />}
-              style={{ borderBottomWidth: 1 }}
-            />
-          </List.Section>
+              <DoubleCardContainer>
+                <Card
+                  style={{
+                    margin: 10,
+                    width: "45%",
+                    backgroundColor: "rgba(52, 52, 52, 0.6)",
+                  }}
+                >
+                  <Card.Content
+                    style={{ justifyContent: "center", alignItems: "center" }}
+                  >
+                    <Title style={{ color: "white" }}>24 Hours</Title>
+                    <Paragraph style={{ color: "white" }}>
+                      Jul 16 - 22
+                    </Paragraph>
+                  </Card.Content>
+                </Card>
+                <Card
+                  style={{
+                    margin: 10,
+                    width: "45%",
+                    backgroundColor: "rgba(52, 52, 52, 0.6)",
+                  }}
+                >
+                  <Card.Content
+                    style={{ justifyContent: "center", alignItems: "center" }}
+                  >
+                    <Title style={{ color: "white" }}>44 Hours</Title>
+                    <Paragraph style={{ color: "white" }}>Jul 9 - 15</Paragraph>
+                  </Card.Content>
+                </Card>
+              </DoubleCardContainer>
+            </ImageBackground>
+          </View>
+
+          <DataTable>
+            <DataTable.Header>
+              <DataTable.Title>Daily Summary</DataTable.Title>
+              <DataTable.Title numeric>Activity</DataTable.Title>
+              <DataTable.Title numeric>Value</DataTable.Title>
+            </DataTable.Header>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 22</DataTable.Cell>
+              <DataTable.Cell numeric>Plumbing</DataTable.Cell>
+              <DataTable.Cell numeric>$105.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 21</DataTable.Cell>
+              <DataTable.Cell numeric>Appliance</DataTable.Cell>
+              <DataTable.Cell numeric>$115.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 20</DataTable.Cell>
+              <DataTable.Cell numeric>Delivery</DataTable.Cell>
+              <DataTable.Cell numeric>$64.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 19</DataTable.Cell>
+              <DataTable.Cell numeric>Cleaning</DataTable.Cell>
+              <DataTable.Cell numeric>$45.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 18</DataTable.Cell>
+              <DataTable.Cell numeric>Appliance</DataTable.Cell>
+              <DataTable.Cell numeric>$85.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 17</DataTable.Cell>
+              <DataTable.Cell numeric>Handyman</DataTable.Cell>
+              <DataTable.Cell numeric>$96.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 16</DataTable.Cell>
+              <DataTable.Cell numeric>Personal</DataTable.Cell>
+              <DataTable.Cell numeric>$75.00</DataTable.Cell>
+            </DataTable.Row>
+          </DataTable>
         </DetailsContainer>
       </ScrollView>
     </SafeAreaView>
@@ -261,7 +305,6 @@ const HomeContainer = ({ children }) => (
 
 export const Home = ({ navigation }) => {
   return (
-    
     <HomeContainer>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Welcome to,</Text>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Travtail</Text>
@@ -288,3 +331,31 @@ export const Home = ({ navigation }) => {
     </HomeContainer>
   );
 };
+
+/*
+<List.Section>
+<List.Item
+  title="Batches"
+  right={() => <List.Icon icon="folder" />}
+  style={styles.listItemSummary}
+/>
+<List.Item
+  title="Instacart Payment"
+  right={() => <List.Icon icon="folder" />}
+  style={styles.listItemSummary}
+/>
+<List.Item
+  title="Customer Tips"
+  right={() => <List.Icon icon="folder" />}
+  style={styles.listItemSummary}
+/>
+<List.Item
+  title="Earnings Adjustment"
+  right={() => <List.Icon icon="folder" />}
+  style={styles.listItemSummary}
+/>
+<List.Item
+  title="One-Time Payment"
+  right={() => <List.Icon icon="folder" />}
+/>
+</List.Section>*/
