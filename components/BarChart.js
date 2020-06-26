@@ -9,10 +9,10 @@ class BarChartComponent extends React.Component {
     const chartConfig = {
       backgroundGradientFrom: "#F2F2F2",
       backgroundGradientTo: "#F2F2F2",
-      color: (opacity = 5) => `rgba(135, 65, 244, ${opacity})`,
+      color: (opacity = 5) => `rgba(0, 0, 0, ${opacity})`,
       strokeWidth: 2, // optional, default 3
       barPercentage: 1.0, // optional
-      fillShadowGradient: "#593196",
+      fillShadowGradient: "gray",
       fillShadowGradientOpacity: 5.0,
       style: {
         borderRadius: 6,
