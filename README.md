@@ -1,5 +1,7 @@
 # travtail_expo_final
 
+![Travtail Expo](/img/travtail.gif)
+
 * This app utilizes the Expo Cli - Please install the expo cli before use.
 ** This app is still in development: If you do not have an emulator for either Android or IOS, please install one now.
 
