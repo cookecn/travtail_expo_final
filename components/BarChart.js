@@ -16,14 +16,15 @@ class BarChartComponent extends React.Component {
       fillShadowGradientOpacity: 5.0,
       style: {
         borderRadius: 6,
+        paddingRight: 10,
       },
     };
 
     const data = {
-      labels: ["January", "February", "Jul 16 - 22"],
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
       datasets: [
         {
-          data: [526, 612, 585],
+          data: [2104, 2448, 2340, 2808, 2584, 2412, 2332],
         },
       ],
     };
@@ -33,16 +34,21 @@ class BarChartComponent extends React.Component {
       ...chartConfig.style,
     };
     return (
-      <BarChart
-        style={graphStyle}
-        data={data}
-        width={screenWidth}
-        height={300}
-        yAxisLabel="$"
-        chartConfig={chartConfig}
-        verticalLabelRotation={30}
-        fromZero={true}
-      />
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <BarChart
+          style={graphStyle}
+          data={data}
+          width={screenWidth}
+          height={300}
+          yAxisLabel="$"
+          chartConfig={chartConfig}
+          verticalLabelRotation={0}
+          fromZero={true}
+          withInnerLines={false}
+          showValuesOnTopOfBars={true}
+          withHorizontalLabels={false}
+        />
+      </View>
     );
   }
 }

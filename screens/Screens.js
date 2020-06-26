@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   weeklyEarningsText: {
     fontWeight: "bold",
-    fontSize: 28,
+    fontSize: 36,
     marginBottom: 5,
     color: "white",
     marginTop: 20,
@@ -102,7 +102,7 @@ export const Profile = ({ navigation }) => {
             backgroundColor: "indigo",
           }}
         >
-          <Text style={styles.weeklyEarningsText}>Weekly Earnings</Text>
+          <Text style={styles.weeklyEarningsText}>Historical Earnings</Text>
         </View>
         <BarChartComponent />
         <HeroComponent />
@@ -115,7 +115,7 @@ export const Profile = ({ navigation }) => {
               <DataTable.Title numeric>Value</DataTable.Title>
             </DataTable.Header>
             <DataTable.Row>
-              <DataTable.Cell>Jul 16 - 22</DataTable.Cell>
+              <DataTable.Cell>Current</DataTable.Cell>
               <DataTable.Cell
                 numeric
                 onPress={() =>
@@ -317,25 +317,8 @@ export const Home = ({ navigation }) => {
     <HomeContainer>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Welcome to,</Text>
       <LogoComponent />
-      <View style={{ flexDirection: "row" }}>
-        <IconButton
-          icon="account-circle"
-          color={Colors.blue500}
-          size={20}
-          onPress={() => navigation.navigate("Profile", { name: "Profile" })}
-        />
-        <IconButton
-          icon="folder-account"
-          color={Colors.red500}
-          size={20}
-          onPress={() => navigation.navigate("Details", { name: "Details" })}
-        />
-        {/*<IconButton
-          icon="magnify"
-          color={Colors.red500}
-          size={20}
-          onPress={() => navigation.navigate("Search", { name: "Search" })}
-        />*/}
+      <View style={{ marginTop: 10}}>
+
       </View>
       <SearchBarComponent />
     </HomeContainer>

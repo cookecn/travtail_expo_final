@@ -12,7 +12,7 @@ import { Provider as PaperProvider } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
 //import { withAuthenticator } from "aws-amplify-react-native";
 import { Details, Search, Profile, Home } from "./screens/Screens";
-
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
@@ -20,12 +20,38 @@ import awsconfig from "./aws-exports";
 Amplify.configure(awsconfig);
 
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
+//const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
 const TabRoutes = () => {
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === "Home") {
+            iconName = focused
+              ? "ios-home"
+              : "ios-home";
+          } else if (route.name === "Profile") {
+            iconName = focused ? "md-person" : "md-person";
+          } else if (route.name === "Details") {
+            iconName = focused ? "ios-list-box" : "ios-list";
+          }
+
+          // You can return any component that you like here!
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: "indigo",
+        inactiveTintColor: "white",
+        activeBackgroundColor: 'white',
+        inactiveBackgroundColor: '#593196'
+      }}
+    >
       <Tab.Screen component={Home} name="Home" />
       <Tab.Screen
         component={Profile}
@@ -73,7 +99,7 @@ const HeaderLeft = () => {
       <TouchableOpacity
         onPress={() => {
           //navigation.dispatch(DrawerActions.openDrawer());
-          navigation.goBack("Home" , { title: "Home" });
+          navigation.goBack("Home", { title: "Home" });
         }}
       >
         <ActionBarIcon />
