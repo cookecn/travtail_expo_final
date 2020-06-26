@@ -22,7 +22,7 @@ class HeroComponent extends React.Component {
             height: 200,
           }}
         >
-          <Text style={styles.textStyle}>Weekly Earnings</Text>
+          <Text style={styles.textStyle}>WEEKLY EARNINGS</Text>
         </LinearGradient>
       </ImageBackground>
     );
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
       color: 'white',
-      fontSize: 36,
+      fontSize: 32,
       fontWeight: 'bold'
   }
 });

@@ -12,7 +12,7 @@ class BarChartComponent extends React.Component {
       color: (opacity = 5) => `rgba(0, 0, 0, ${opacity})`,
       strokeWidth: 2, // optional, default 3
       barPercentage: 1.0, // optional
-      fillShadowGradient: "gray",
+      fillShadowGradient: "#593196",
       fillShadowGradientOpacity: 5.0,
       style: {
         borderRadius: 6,

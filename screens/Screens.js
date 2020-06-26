@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: "white",
-    fontSize: 36,
+    fontSize: 32,
     fontWeight: "bold",
   },
   heroHeaderWeekly: {
@@ -132,7 +132,7 @@ export const Profile = ({ navigation }) => {
               height: 100,
             }}
           >
-            <Text style={styles.textStyle}>Historical Earnings</Text>
+            <Text style={styles.textStyle}>HISTORICAL EARNINGS</Text>
           </LinearGradient>
         </ImageBackground>
 
