@@ -7,8 +7,8 @@ const screenWidth = Dimensions.get("window").width;
 class BarChartComponent extends React.Component {
   render() {
     const chartConfig = {
-      backgroundGradientFrom: "#F2F2F2",
-      backgroundGradientTo: "#F2F2F2",
+      backgroundGradientFrom: "white",
+      backgroundGradientTo: "white",
       color: (opacity = 5) => `rgba(0, 0, 0, ${opacity})`,
       strokeWidth: 2, // optional, default 3
       barPercentage: 1.0, // optional
@@ -16,7 +16,7 @@ class BarChartComponent extends React.Component {
       fillShadowGradientOpacity: 5.0,
       style: {
         borderRadius: 6,
-        paddingRight: 10,
+        paddingRight: 0,
       },
     };
 

@@ -11,7 +11,7 @@ class HeroComponent extends React.Component {
         resizeMode="stretch"
       >
         <LinearGradient
-          colors={["rgba(98,29,235,0.3)", "rgba(98,29,235,0.3)"]}
+          colors={["rgba(98,29,235,0.5)", "rgba(98,29,235,0.5)"]}
           style={{
             justifyContent: "center",
             alignItems: "center",
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 10,
   },
   textStyle: {
       color: 'white',

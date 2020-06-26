@@ -5,7 +5,7 @@ import {
   useNavigation,
   DrawerActions,
 } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+//import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Provider as PaperProvider } from "react-native-paper";

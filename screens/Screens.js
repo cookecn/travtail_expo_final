@@ -137,6 +137,18 @@ export const Profile = ({ navigation }) => {
         </ImageBackground>
 
         <BarChartComponent />
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 20,
+            backgroundColor: 'white'
+          }}
+        >
+          <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Current MTD</Text>
+          <Text style={{ fontSize: 14 }}>You've earned $1,582.00 and worked 16 jobs!</Text>
+        </View>
         <HeroComponent />
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -195,7 +207,7 @@ export const Details = () => {
             style={{
               justifyContent: "center",
               alignItems: "center",
-              position: 'absolute',
+              position: "absolute",
               left: 0,
               right: 0,
               top: 0,
@@ -205,7 +217,6 @@ export const Details = () => {
             <Text style={styles.textStyleWeekly}>$585.00</Text>
           </LinearGradient>
         </ImageBackground>
-        <DetailsContainer>
           <Divider />
 
           <DataTable>
@@ -336,7 +347,6 @@ export const Details = () => {
               <DataTable.Cell numeric>$75.00</DataTable.Cell>
             </DataTable.Row>
           </DataTable>
-        </DetailsContainer>
       </ScrollView>
     </SafeAreaView>
   );
