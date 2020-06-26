@@ -146,8 +146,8 @@ export const Profile = ({ navigation }) => {
             backgroundColor: 'white'
           }}
         >
-          <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Current MTD</Text>
-          <Text style={{ fontSize: 14 }}>You've earned $1,582.00 and worked 16 jobs!</Text>
+          <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Current YTD</Text>
+          <Text style={{ fontSize: 14 }}>You've earned $16,331.00 and worked 316 jobs!</Text>
         </View>
         <HeroComponent />
         <View
@@ -159,7 +159,7 @@ export const Profile = ({ navigation }) => {
               <DataTable.Title numeric>Value</DataTable.Title>
             </DataTable.Header>
             <DataTable.Row>
-              <DataTable.Cell>Current</DataTable.Cell>
+              <DataTable.Cell>Current Week</DataTable.Cell>
               <DataTable.Cell
                 numeric
                 onPress={() =>
@@ -170,13 +170,38 @@ export const Profile = ({ navigation }) => {
               </DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jul 7 - 15</DataTable.Cell>
+              <DataTable.Cell>Jul 8 - 14</DataTable.Cell>
               <DataTable.Cell numeric>$612.00</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jun 30 - Jul 6</DataTable.Cell>
+              <DataTable.Cell>Jul 1 - 7</DataTable.Cell>
               <DataTable.Cell numeric>$385.00</DataTable.Cell>
             </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jun 24 - 30</DataTable.Cell>
+              <DataTable.Cell numeric>$689.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jun 17 - 23</DataTable.Cell>
+              <DataTable.Cell numeric>$565.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jun 10 - 16</DataTable.Cell>
+              <DataTable.Cell numeric>$412.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jun 3 - 9</DataTable.Cell>
+              <DataTable.Cell numeric>$732.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>May 27 - Jun 2</DataTable.Cell>
+              <DataTable.Cell numeric>$641.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Prior Weeks</DataTable.Cell>
+              <DataTable.Cell numeric>$16,652.00</DataTable.Cell>
+            </DataTable.Row>
+
           </DataTable>
         </View>
       </ScrollView>
@@ -215,6 +240,7 @@ export const Details = () => {
             }}
           >
             <Text style={styles.textStyleWeekly}>$585.00</Text>
+            <Text style={{ fontSize: 20, color: 'white'}}>Jul 15 - 21</Text>
           </LinearGradient>
         </ImageBackground>
           <Divider />
@@ -280,7 +306,7 @@ export const Details = () => {
                     >
                       <Title style={{ color: "white" }}>24 Hours</Title>
                       <Paragraph style={{ color: "white" }}>
-                        Jul 16 - 22
+                        Current Week
                       </Paragraph>
                     </Card.Content>
                   </Card>
@@ -296,7 +322,7 @@ export const Details = () => {
                     >
                       <Title style={{ color: "white" }}>44 Hours</Title>
                       <Paragraph style={{ color: "white" }}>
-                        Jul 9 - 15
+                        Previous Week
                       </Paragraph>
                     </Card.Content>
                   </Card>
@@ -312,37 +338,37 @@ export const Details = () => {
               <DataTable.Title numeric>Value</DataTable.Title>
             </DataTable.Header>
             <DataTable.Row>
-              <DataTable.Cell>Jul 22</DataTable.Cell>
+              <DataTable.Cell>Jul 21</DataTable.Cell>
               <DataTable.Cell numeric>Plumbing</DataTable.Cell>
               <DataTable.Cell numeric>$105.00</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jul 21</DataTable.Cell>
+              <DataTable.Cell>Jul 20</DataTable.Cell>
               <DataTable.Cell numeric>Appliance</DataTable.Cell>
               <DataTable.Cell numeric>$115.00</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jul 20</DataTable.Cell>
+              <DataTable.Cell>Jul 19</DataTable.Cell>
               <DataTable.Cell numeric>Delivery</DataTable.Cell>
               <DataTable.Cell numeric>$64.00</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jul 19</DataTable.Cell>
+              <DataTable.Cell>Jul 18</DataTable.Cell>
               <DataTable.Cell numeric>Cleaning</DataTable.Cell>
               <DataTable.Cell numeric>$45.00</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jul 18</DataTable.Cell>
+              <DataTable.Cell>Jul 17</DataTable.Cell>
               <DataTable.Cell numeric>Appliance</DataTable.Cell>
               <DataTable.Cell numeric>$85.00</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jul 17</DataTable.Cell>
+              <DataTable.Cell>Jul 16</DataTable.Cell>
               <DataTable.Cell numeric>Handyman</DataTable.Cell>
               <DataTable.Cell numeric>$96.00</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell>Jul 16</DataTable.Cell>
+              <DataTable.Cell>Jul 15</DataTable.Cell>
               <DataTable.Cell numeric>Personal</DataTable.Cell>
               <DataTable.Cell numeric>$75.00</DataTable.Cell>
             </DataTable.Row>

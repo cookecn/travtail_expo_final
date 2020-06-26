@@ -24,7 +24,7 @@ class BarChartComponent extends React.Component {
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
       datasets: [
         {
-          data: [2104, 2448, 2340, 2808, 2584, 2412, 2332],
+          data: [2104, 2448, 2340, 2808, 2584, 2465, 1582],
         },
       ],
     };
