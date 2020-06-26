@@ -20,10 +20,10 @@ class BarChartComponent extends React.Component {
     };
 
     const data = {
-      labels: ["January", "February", "March", "April", "May", "June"],
+      labels: ["January", "February", "Jul 16 - 22"],
       datasets: [
         {
-          data: [20, 45, 28, 80, 99, 43],
+          data: [526, 612, 585],
         },
       ],
     };
@@ -41,6 +41,7 @@ class BarChartComponent extends React.Component {
         yAxisLabel="$"
         chartConfig={chartConfig}
         verticalLabelRotation={30}
+        fromZero={true}
       />
     );
   }

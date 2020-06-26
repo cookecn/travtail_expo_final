@@ -23,6 +23,7 @@ import {
 import SearchBarComponent from "../components/SearchBar";
 import LogoComponent from "../components/Logo";
 import BarChartComponent from "../components/BarChart";
+import HeroComponent from "../components/Hero";
 //import Pie from "react-native-pie";
 
 //Styles for All Screens
@@ -94,36 +95,45 @@ export const Profile = ({ navigation }) => {
     <SafeAreaView>
       <ScrollView>
         <View
-          style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: 'indigo' }}
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "indigo",
+          }}
         >
           <Text style={styles.weeklyEarningsText}>Weekly Earnings</Text>
         </View>
         <BarChartComponent />
-        <Divider />
+        <HeroComponent />
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
-          <Card
-            style={{
-              backgroundColor: "rgba(52, 52, 52, 0.8)",
-              width: "50%",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Card.Content style={styles.cardTextWeekly}>
-              <Title style={{ color: "white" }}>Jul 16 - 22</Title>
-              <Paragraph style={{ color: "white" }}>$585.00</Paragraph>
-              <IconButton
-                icon="account-details"
-                color={"white"}
-                size={24}
+          <DataTable>
+            <DataTable.Header>
+              <DataTable.Title>Weekly Payouts</DataTable.Title>
+              <DataTable.Title numeric>Value</DataTable.Title>
+            </DataTable.Header>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 16 - 22</DataTable.Cell>
+              <DataTable.Cell
+                numeric
                 onPress={() =>
                   navigation.navigate("Details", { name: "Details" })
                 }
-              />
-            </Card.Content>
-          </Card>
+              >
+                $585.00
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jul 7 - 15</DataTable.Cell>
+              <DataTable.Cell numeric>$612.00</DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>Jun 30 - Jul 6</DataTable.Cell>
+              <DataTable.Cell numeric>$385.00</DataTable.Cell>
+            </DataTable.Row>
+          </DataTable>
         </View>
       </ScrollView>
     </SafeAreaView>
