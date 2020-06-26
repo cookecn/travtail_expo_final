@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     marginBottom: 5,
     color: "white",
-    marginTop: 40,
+    marginTop: 20,
   },
   cardTextWeekly: {
     alignItems: "center",
@@ -98,6 +98,7 @@ export const Profile = ({ navigation }) => {
         >
           <Text style={styles.weeklyEarningsText}>Weekly Earnings</Text>
         </View>
+        <BarChartComponent />
         <Divider />
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -124,7 +125,6 @@ export const Profile = ({ navigation }) => {
             </Card.Content>
           </Card>
         </View>
-        <BarChartComponent />
       </ScrollView>
     </SafeAreaView>
   );
@@ -193,7 +193,7 @@ export const Details = () => {
 
           <View>
             <ImageBackground
-              source={require("../img/chef.jpg")}
+              source={require("../img/work.jpg")}
               style={{ flex: 1, padding: 50 }}
             >
               <DoubleCardContainer>
@@ -201,7 +201,7 @@ export const Details = () => {
                   style={{
                     margin: 10,
                     width: "45%",
-                    backgroundColor: "rgba(52, 52, 52, 0.6)",
+                    backgroundColor: "rgba(52, 52, 52, 0.9)",
                   }}
                 >
                   <Card.Content
@@ -217,7 +217,7 @@ export const Details = () => {
                   style={{
                     margin: 10,
                     width: "45%",
-                    backgroundColor: "rgba(52, 52, 52, 0.6)",
+                    backgroundColor: "rgba(52, 52, 52, 0.9)",
                   }}
                 >
                   <Card.Content
@@ -307,7 +307,6 @@ export const Home = ({ navigation }) => {
     <HomeContainer>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Welcome to,</Text>
       <LogoComponent />
-      {/*<Text style={{ fontWeight: "bold", fontSize: 48 }}>Travtail</Text>*/}
       <View style={{ flexDirection: "row" }}>
         <IconButton
           icon="account-circle"

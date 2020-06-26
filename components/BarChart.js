@@ -7,14 +7,16 @@ const screenWidth = Dimensions.get("window").width;
 class BarChartComponent extends React.Component {
   render() {
     const chartConfig = {
-      backgroundGradientFrom: "#1E2923",
-      backgroundGradientFromOpacity: 0,
-      backgroundGradientTo: "#08130D",
-      backgroundGradientToOpacity: 0.5,
-      color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+      backgroundGradientFrom: "#F2F2F2",
+      backgroundGradientTo: "#F2F2F2",
+      color: (opacity = 5) => `rgba(135, 65, 244, ${opacity})`,
       strokeWidth: 2, // optional, default 3
-      barPercentage: 0.5,
-      useShadowColorFromDataset: false, // optional
+      barPercentage: 1.0, // optional
+      fillShadowGradient: "#593196",
+      fillShadowGradientOpacity: 5.0,
+      style: {
+        borderRadius: 6,
+      },
     };
 
     const data = {
@@ -27,7 +29,7 @@ class BarChartComponent extends React.Component {
     };
 
     const graphStyle = {
-      marginVertical: 8,
+      marginVertical: 10,
       ...chartConfig.style,
     };
     return (
@@ -35,7 +37,7 @@ class BarChartComponent extends React.Component {
         style={graphStyle}
         data={data}
         width={screenWidth}
-        height={220}
+        height={300}
         yAxisLabel="$"
         chartConfig={chartConfig}
         verticalLabelRotation={30}
