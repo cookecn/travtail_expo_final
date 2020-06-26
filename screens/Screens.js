@@ -20,6 +20,7 @@ import {
   Avatar,
   Button,
 } from "react-native-paper";
+import { LinearGradient } from "expo-linear-gradient";
 import SearchBarComponent from "../components/SearchBar";
 import LogoComponent from "../components/Logo";
 import BarChartComponent from "../components/BarChart";
@@ -81,6 +82,26 @@ const styles = StyleSheet.create({
   listItemSummary: {
     height: 36,
   },
+  heroHeaderStyle: {
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textStyle: {
+    color: "white",
+    fontSize: 36,
+    fontWeight: "bold",
+  },
+  heroHeaderWeekly: {
+    height: 188,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textStyleWeekly: {
+    fontSize: 48,
+    fontWeight: "bold",
+    color: "white",
+  },
 });
 
 //ProfileContainer for Profile Screen only
@@ -94,16 +115,27 @@ export const Profile = ({ navigation }) => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "indigo",
-          }}
+        <ImageBackground
+          source={require("../img/calculator.jpg")}
+          style={styles.heroHeaderStyle}
+          resizeMode="stretch"
         >
-          <Text style={styles.weeklyEarningsText}>Historical Earnings</Text>
-        </View>
+          <LinearGradient
+            colors={["rgba(98,29,235,0.3)", "rgba(98,29,235,0.3)"]}
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: 0,
+              height: 100,
+            }}
+          >
+            <Text style={styles.textStyle}>Historical Earnings</Text>
+          </LinearGradient>
+        </ImageBackground>
+
         <BarChartComponent />
         <HeroComponent />
         <View
@@ -153,21 +185,27 @@ export const Details = () => {
   return (
     <SafeAreaView>
       <ScrollView>
+        <ImageBackground
+          source={require("../img/croppedworker.jpg")}
+          style={styles.heroHeaderWeekly}
+          resizeMode="contain"
+        >
+          <LinearGradient
+            colors={["rgba(98,29,235,0.3)", "rgba(98,29,235,0.3)"]}
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: 188,
+            }}
+          >
+            <Text style={styles.textStyleWeekly}>$585.00</Text>
+          </LinearGradient>
+        </ImageBackground>
         <DetailsContainer>
-          <Card style={{ backgroundColor: "indigo" }}>
-            <Card.Content
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 10,
-              }}
-            >
-              <Title style={{ fontSize: 48, padding: 40, color: "white" }}>
-                $585.00
-              </Title>
-            </Card.Content>
-          </Card>
-
           <Divider />
 
           <DataTable>
@@ -204,40 +242,55 @@ export const Details = () => {
           <View>
             <ImageBackground
               source={require("../img/work.jpg")}
-              style={{ flex: 1, padding: 50 }}
+              style={{ flex: 1, padding: 50, height: 200 }}
             >
-              <DoubleCardContainer>
-                <Card
-                  style={{
-                    margin: 10,
-                    width: "45%",
-                    backgroundColor: "rgba(52, 52, 52, 0.9)",
-                  }}
-                >
-                  <Card.Content
-                    style={{ justifyContent: "center", alignItems: "center" }}
+              <LinearGradient
+                colors={["rgba(98,29,235,0.3)", "rgba(98,29,235,0.3)"]}
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  height: 200,
+                }}
+              >
+                <DoubleCardContainer>
+                  <Card
+                    style={{
+                      margin: 10,
+                      width: "45%",
+                      backgroundColor: "rgba(98, 40, 212, 0.6)",
+                    }}
                   >
-                    <Title style={{ color: "white" }}>24 Hours</Title>
-                    <Paragraph style={{ color: "white" }}>
-                      Jul 16 - 22
-                    </Paragraph>
-                  </Card.Content>
-                </Card>
-                <Card
-                  style={{
-                    margin: 10,
-                    width: "45%",
-                    backgroundColor: "rgba(52, 52, 52, 0.9)",
-                  }}
-                >
-                  <Card.Content
-                    style={{ justifyContent: "center", alignItems: "center" }}
+                    <Card.Content
+                      style={{ justifyContent: "center", alignItems: "center" }}
+                    >
+                      <Title style={{ color: "white" }}>24 Hours</Title>
+                      <Paragraph style={{ color: "white" }}>
+                        Jul 16 - 22
+                      </Paragraph>
+                    </Card.Content>
+                  </Card>
+                  <Card
+                    style={{
+                      margin: 10,
+                      width: "45%",
+                      backgroundColor: "rgba(98, 40, 212, 0.6)",
+                    }}
                   >
-                    <Title style={{ color: "white" }}>44 Hours</Title>
-                    <Paragraph style={{ color: "white" }}>Jul 9 - 15</Paragraph>
-                  </Card.Content>
-                </Card>
-              </DoubleCardContainer>
+                    <Card.Content
+                      style={{ justifyContent: "center", alignItems: "center" }}
+                    >
+                      <Title style={{ color: "white" }}>44 Hours</Title>
+                      <Paragraph style={{ color: "white" }}>
+                        Jul 9 - 15
+                      </Paragraph>
+                    </Card.Content>
+                  </Card>
+                </DoubleCardContainer>
+              </LinearGradient>
             </ImageBackground>
           </View>
 
@@ -317,9 +370,7 @@ export const Home = ({ navigation }) => {
     <HomeContainer>
       <Text style={{ fontWeight: "bold", fontSize: 48 }}>Welcome to,</Text>
       <LogoComponent />
-      <View style={{ marginTop: 10}}>
-
-      </View>
+      <View style={{ marginTop: 10 }}></View>
       <SearchBarComponent />
     </HomeContainer>
   );

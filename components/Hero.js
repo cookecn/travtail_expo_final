@@ -6,9 +6,9 @@ class HeroComponent extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../img/croppedworker.jpg")}
+        source={require("../img/timeismoney.jpg")}
         style={styles.heroHeaderStyle}
-        resizeMode="contain"
+        resizeMode="stretch"
       >
         <LinearGradient
           colors={["rgba(98,29,235,0.3)", "rgba(98,29,235,0.3)"]}
@@ -18,8 +18,8 @@ class HeroComponent extends React.Component {
             position: "absolute",
             left: 0,
             right: 0,
-            top: 6,
-            height: 188,
+            top: 0,
+            height: 200,
           }}
         >
           <Text style={styles.textStyle}>Weekly Earnings</Text>
