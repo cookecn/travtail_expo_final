@@ -29,7 +29,7 @@ const ProfileContainer = ({ children }) => (
 
 //Profile Screen with ProfileContainer allowing for nesting
 //Future build: Add database for the title/paragraph and icon, allowing for items to be .map and appear in a list.
-export const Profile = ({ navigation }) => {
+const Profile = ({ navigation }) => {
     return (
         <SafeAreaView>
             <ScrollView>
@@ -126,3 +126,5 @@ export const Profile = ({ navigation }) => {
         </SafeAreaView>
     );
 };
+
+export default Profile;
