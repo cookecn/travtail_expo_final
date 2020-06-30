@@ -6,7 +6,6 @@ import {
   SafeAreaView,
   ScrollView,
   ImageBackground,
-  Image,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {
@@ -14,11 +13,7 @@ import {
   Card,
   Title,
   Paragraph,
-  IconButton,
-  Colors,
   DataTable,
-  Avatar,
-  Button,
 } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 import SearchBarComponent from "../components/SearchBar";
@@ -411,31 +406,3 @@ export const Home = ({ navigation }) => {
     </HomeContainer>
   );
 };
-
-/*
-<List.Section>
-<List.Item
-  title="Batches"
-  right={() => <List.Icon icon="folder" />}
-  style={styles.listItemSummary}
-/>
-<List.Item
-  title="Instacart Payment"
-  right={() => <List.Icon icon="folder" />}
-  style={styles.listItemSummary}
-/>
-<List.Item
-  title="Customer Tips"
-  right={() => <List.Icon icon="folder" />}
-  style={styles.listItemSummary}
-/>
-<List.Item
-  title="Earnings Adjustment"
-  right={() => <List.Icon icon="folder" />}
-  style={styles.listItemSummary}
-/>
-<List.Item
-  title="One-Time Payment"
-  right={() => <List.Icon icon="folder" />}
-/>
-</List.Section>*/

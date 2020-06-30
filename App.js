@@ -11,13 +11,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Provider as PaperProvider } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
 //import { withAuthenticator } from "aws-amplify-react-native";
-import { Details, Search, Profile, Home } from "./screens/Screens";
+import { Details, Search, Profile, Home } from "./screens";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import Amplify from "aws-amplify";
-import awsconfig from "./aws-exports";
+//import Amplify from "aws-amplify";
+//import awsconfig from "./aws-exports";
 
-Amplify.configure(awsconfig);
+//Amplify.configure(awsconfig);
 
 const Stack = createStackNavigator();
 //const Drawer = createDrawerNavigator();
